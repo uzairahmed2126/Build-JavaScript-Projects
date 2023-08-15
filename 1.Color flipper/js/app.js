@@ -5,7 +5,13 @@ const btnEl = document.getElementById('btn')
 
 
 btnEl.addEventListener('click',()=>{
-    document.body.style.background=colors.forEach((col)=>{
-        colors[col]
-    })
+    const randomNumber = getRandomNumber();
+    document.body.style.background=colors[randomNumber]
+    colorEl.textContent=colors[randomNumber]
 })
+
+
+const getRandomNumber =()=>{
+    return Math.floor(Math.random()*colors.length)
+}
+
