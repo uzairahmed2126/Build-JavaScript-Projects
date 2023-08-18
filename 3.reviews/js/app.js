@@ -4,7 +4,7 @@ const reviews = [
     id: 1,
     name: 'susan smith',
     job: 'web developer',
-    img: 'https://www.course-api.com/images/people/person-1.jpeg',
+    img: 'https://www.course-api.com/images/people/person-5.jpeg',
     text:
       "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
   },
@@ -36,9 +36,10 @@ const reviews = [
 
 const review = document.querySelector('.review')
 
-const randomBtn= document.querySelector('.random-btn')
+const randomBtn = document.querySelector('.random-btn')
 const left = document.querySelector('.prev-btn')
 const right = document.querySelector('.next-btn')
+const fas = document.querySelectorAll('.fas')
 
 const img = document.getElementById('person-img')
 const author = document.getElementById('author')
@@ -47,8 +48,42 @@ const info = document.getElementById('info')
 
 let currentItem = 0
 
-randomBtn.addEventListener('click', () => {
-    reviews.forEach((arr)=>{
-        arr.text = currentItem
-    })
+window.addEventListener('DOMContentLoaded', () => {
+  const item = reviews[currentItem]
+  img.src = item.img
+  author.innerText = item.name
+  job.innerText = item.job
+  info.innerText = item.text
 })
+// left & right
+fas.forEach((element) => {
+  element.addEventListener('click', (event) => {
+    const style = event.currentTarget.classList
+    if (style.contains('fa-chevron-left')) {
+      const item = reviews[currentItem++]
+      console.log(item)
+      img.src = item.img
+      author.innerText = item.name
+      job.innerText = item.job
+      info.innerText = item.text
+    } else if (style.contains('fa-chevron-right')) {
+      const item = reviews[currentItem++]
+      console.log(item)
+      img.src = item.img
+      author.innerText = item.name
+      job.innerText = item.job
+      info.innerText = item.text
+    }
+  })
+})
+
+randomBtn.addEventListener('click', () => {
+  const item = reviews[random()]
+  img.src = item.img
+  author.innerText = item.name
+  job.innerText = item.job
+  info.innerText = item.text
+})
+function random() {
+  return Math.floor(Math.random() * reviews.length)
+}
