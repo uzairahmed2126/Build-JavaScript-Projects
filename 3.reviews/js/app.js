@@ -48,19 +48,26 @@ const info = document.getElementById('info')
 
 let currentItem = 0
 
-window.addEventListener('DOMContentLoaded', () => {
-  const item = reviews[currentItem]
-  img.src = item.img
-  author.innerText = item.name
-  job.innerText = item.job
-  info.innerText = item.text
-})
-// left & right
+// window.addEventListener('DOMContentLoaded', () => {
+//   showPerson(currentItem)
+// })
+
+// function showPerson(person){
+//     const item = reviews[person]
+//     img.src = item.img
+//     author.innerText = item.name
+//     job.innerText = item.job
+//     info.innerText = item.text
+// }
+// left & right 
 fas.forEach((element) => {
   element.addEventListener('click', (event) => {
     const style = event.currentTarget.classList
     if (style.contains('fa-chevron-left')) {
       const item = reviews[currentItem++]
+      if (currentItem > reviews.length - 1) {
+        currentItem = 0
+      }
       console.log(item)
       img.src = item.img
       author.innerText = item.name
@@ -68,7 +75,9 @@ fas.forEach((element) => {
       info.innerText = item.text
     } else if (style.contains('fa-chevron-right')) {
       const item = reviews[currentItem++]
-      console.log(item)
+      if (currentItem > reviews.length - 1) {
+        currentItem = 0
+      }
       img.src = item.img
       author.innerText = item.name
       job.innerText = item.job
@@ -76,6 +85,23 @@ fas.forEach((element) => {
     }
   })
 })
+
+
+// left.addEventListener('click',()=>{
+//     currentItem++
+//     if(currentItem>reviews.length-1){
+//         currentItem=0
+//     }
+//     showPerson(currentItem)
+
+// })
+// right.addEventListener('click',()=>{
+//     currentItem++
+//     if(currentItem>reviews.length-1){
+//         currentItem=0
+//     }
+//     showPerson(currentItem)
+// })
 
 randomBtn.addEventListener('click', () => {
   const item = reviews[random()]
