@@ -225,10 +225,10 @@ nav {
   display: none;
 }
 
-.links {
-  /* height: 0;
+.links { 
+   height: 0;
   overflow: hidden;
-  transition: var(--transition); */
+  transition: var(--transition); 
 }
 
 .show-links {
