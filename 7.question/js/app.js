@@ -1,15 +1,10 @@
-const para = document.querySelectorAll('.para')
-const addBtn = document.querySelectorAll('.fa-square-plus')
+const para = document.querySelector('.para')
+const addBtn = document.querySelectorAll('.question-btn')
 
-addBtn.forEach((btn)=>{
-    btn.addEventListener('click',(e)=>{
-        para.forEach((e2)=>{
-            const divEl = document.createElement('div')
-            divEl.setAttribute('class','div-el')
-            document.body.style.background='green'
-            divEl.innerHTML='hey'
-            divEl.appendChild(e.currentTarget)
-        })
-        console.log(e.currentTarget)
+addBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        const question =  e.currentTarget.parentElement.parentElement
+        question.classList.toggle('show-text')
+        
     })
 })
