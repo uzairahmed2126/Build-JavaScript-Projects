@@ -1,10 +1,9 @@
-const para = document.querySelector('.para')
-const addBtn = document.querySelectorAll('.question-btn')
+const questions = document.querySelectorAll('.question')
+// const addBtn = document.querySelector('.question-btn')
 
-addBtn.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        const question =  e.currentTarget.parentElement.parentElement
+questions.forEach((question) => {
+    const btn= question.querySelector('.question-btn')
+    btn.addEventListener('click', () => {
         question.classList.toggle('show-text')
-        
     })
 })
