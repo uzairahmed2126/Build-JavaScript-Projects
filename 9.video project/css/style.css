@@ -53,11 +53,9 @@ header {
 .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* gap: 20px; */
 }
 
 .buttons>button {
-    /* background-color: transparent; */
     border: none;
     color: darkturquoise;
     font-weight: bolder;
@@ -76,20 +74,16 @@ header {
 }
 
 .active {
-    visibility: visible;
+    display: none;
+    z-index: -1;
 }
 
 .load {
-    /* padding: 10px;     */
-    /* margin: 10px; */
-    /* height: 100vh; */
     height: 50px;
     width: 50px;
     border: 2px solid gray;
     background-color: transparent;
-    /* box-shadow: 1px 2px 5ex; */
     border-radius: 50%;
-    /* transition: all 0.3s linear; */
     animation: loader infinite 2s;
     display: none;
 }
