@@ -25,14 +25,3 @@ function fn() {
     loadEl.style.display = 'block'
 }
 
-window.addEventListener('DOMContentLoaded', loadWindow)
-function loadWindow(e) {
-    if(e){
-    document.body.style.background='green'
-    document.body.innerHTML='hahah'
-    }
-    if(e==true){
-        document.body.style.background=''
-    document.body.innerHTML=''   
-    }
-}
