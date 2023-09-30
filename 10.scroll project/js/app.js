@@ -1,4 +1,4 @@
 const scrollEl = document.getElementById('my-scroll')
-window.addEventListener('scroll',(e)=>{
-    console.log(e)
+scrollEl.addEventListener('scroll',(e)=>{
+    console.log(e.target)
 })
