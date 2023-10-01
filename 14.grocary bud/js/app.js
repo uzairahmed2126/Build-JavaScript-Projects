@@ -25,3 +25,4 @@ function addItem(e) {
     e.preventDefault();
     console.log(grocery.value)
 }
+
