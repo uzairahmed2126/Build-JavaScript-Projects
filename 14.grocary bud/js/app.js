@@ -23,6 +23,25 @@ form.addEventListener("submit", addItem);
 
 function addItem(e) {
     e.preventDefault();
-    console.log(grocery.value)
+    const value = grocery.value;
+    const id = new Date().getTime().toString();
+    if (value && !editFlag) {
+        const element =  document.createElement('article')
+        
+        alert.innerHTML = 'Item added to the list'
+    } else if (value && editFlag) {
+        alert.innerHTML = 'Editing'
+    }
+    else {
+        displayAlert('Please enter value', 'danger')
+    }
 }
 
+function displayAlert(text, action) {
+    alert.textContent = text
+    alert.classList.add(`alert-${action}`)
+    setTimeout(()=>{
+        alert.textContent = ""
+        alert.classList.remove(`alert-${action}`)
+    },1000)
+}
