@@ -26,11 +26,24 @@ function addItem(e) {
     const value = grocery.value;
     const id = new Date().getTime().toString();
     if (value && !editFlag) {
-        const element =  document.createElement('article')
-        
-        alert.innerHTML = 'Item added to the list'
+        const element = document.createElement('article');
+        element.classList.add('grocery-item');
+        const attr = document.createAttribute('data-id')
+        attr.value = id
+        element.setAttributeNode(attr)
+        element.innerHTML = `  <p class="title">${value}</p>
+        <div class="btn-container">
+            <button class="edit-btn" type="button">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="edit-btn" type="button">
+                <i class="fas fa-trash"></i>
+            </button>` 
+            list.appendChild(element)
+            displayAlert('item added to the list','success')
+            container.classList.add('show-container')
     } else if (value && editFlag) {
-        alert.innerHTML = 'Editing'
+        alert.innerHTML = 'Editing';
     }
     else {
         displayAlert('Please enter value', 'danger')
@@ -40,8 +53,8 @@ function addItem(e) {
 function displayAlert(text, action) {
     alert.textContent = text
     alert.classList.add(`alert-${action}`)
-    setTimeout(()=>{
+    setTimeout(() => {
         alert.textContent = ""
         alert.classList.remove(`alert-${action}`)
-    },1000)
+    }, 1000)
 }
